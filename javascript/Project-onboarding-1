@@ -1,0 +1,46 @@
+const multiplicativePersistance = (num) => {
+  if (num < 10) {
+    return num;
+  }
+
+  let runLoop = true;
+  let numArray = num.toString().split("");
+
+  while (runLoop) {
+    let product = 1;
+    for (let i = 0; i < numArray.length; i++) {
+      product *= numArray[i];
+    }
+    if (product < 10) {
+      return product;
+    } else {
+      numArray = product.toString().split("");
+    }
+  }
+};
+
+const additivePersistance = (num) => {
+  if (num < 10) {
+    return num;
+  }
+
+  let runLoop = true;
+  let numArray = num.toString().split("");
+
+  while (runLoop) {
+    let sum = 0;
+    for (let i = 0; i < numArray.length; i++) {
+      sum += parseInt(numArray[i]);
+    }
+    if (sum < 10) {
+      return sum;
+    } else {
+      numArray = sum.toString().split("");
+    }
+  }
+};
+
+const resultM = multiplicativePersistance(3246112);
+const resultA = additivePersistance(3246112);
+console.log(resultM);
+console.log(resultA);
